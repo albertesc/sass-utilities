@@ -1,0 +1,31 @@
+$breackpoints: (
+  ('sm', 640px),
+  ('md', 768px),
+  ('lg', 1024px),
+  ('xl', 1280px),
+  ('2xl', 1440px)
+);
+$sizes: (4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 24);
+$unit: 'rem';
+
+@each $size in $sizes {
+  .w-#{$size} {
+    width: #{$size}#{$unit};
+  }
+  .h-#{$size} {
+    height: #{$size}#{$unit};
+  }
+}
+
+@each $breakpoint, $media in $breackpoints {
+  @media (min-width: #{$media}) {
+    @each $size in $sizes {
+      .w-#{$breakpoint}-#{$size} {
+        width: #{$size}#{$unit};
+      }
+      .h-#{$breakpoint}-#{$size} {
+        height: #{$size}#{$unit};
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@use "sass:math";
+
+$breackpoints: (
+  ('sm', 640px),
+  ('md', 768px),
+  ('lg', 1024px),
+  ('xl', 1280px),
+  ('2xl', 1440px)
+);
+$columns: 12;
+$gutter: 24px;
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 -#{math.div($gutter, 2)};
+  align-items: baseline;
+}
+
+.col {
+  max-width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 0 math.div($gutter, 2);
+  width: 100%;
+}
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    position: relative;
+    padding: 0 math.div($gutter, 2);
+    flex: 0 0 #{math.div(100, $columns) * $i} + '%';
+    max-width: #{math.div(100, $columns) * $i} + '%';
+    width: 100%;
+  }
+}
+
+@each $breakpoint, $media in $breackpoints {
+  @media (min-width: #{$media}) {
+    @for $i from 1 through $columns {
+      .col-#{$breakpoint}-#{$i} {
+        position: relative;
+        padding: 0 math.div($gutter, 2);
+        max-width: #{math.div(100, $columns) * $i} + '%';
+        flex: 0 0 #{math.div(100, $columns) * $i} + '%';
+        width: 100%;
+      }
+    }
+  }
+}

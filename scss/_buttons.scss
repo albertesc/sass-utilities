@@ -1,0 +1,111 @@
+:root {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-error: #ff210c;
+  --color-error-bg: #ffeceb;
+
+  --color-success: #00972a;
+  --color-success-bg: #f1fef5;
+}
+
+.button {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  // class="button button-primary"
+  &-primary {
+    background-color: var(--color-primary-400);
+    color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-primary-500);
+      color: var(--color-white);
+    }
+
+    &:focus {
+      background: var(--color-primary-700);
+      color: var(--color-white);
+    }
+
+    &:disabled {
+      background: var(--color-gray-400);
+      color: var(--color-gray-700);
+    }
+  }
+
+  // class="button button-secondary"
+  &-secondary {
+    background-color: var(--color-gray-400);
+    color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-gray-500);
+      color: var(--color-white);
+    }
+
+    &:focus {
+      background: var(--color-gray-700);
+      color: var(--color-white);
+    }
+
+    &:disabled {
+      background: var(--color-gray-400);
+      color: var(--color-gray-700);
+    }
+  }
+
+  // class="button button-tertiary"
+  &-terciary {
+    color: var(--color-primary-600);
+    min-width: auto;
+    padding: 0;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--color-primary-500);
+    }
+
+    &:focus {
+      color: var(--color-primary-700);
+    }
+
+    &:disabled {
+      color: var(--color-gray-400);
+    }
+  }
+
+  // class="button button--full"
+  &--full {
+    width: 100%;
+  }
+}
